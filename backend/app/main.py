@@ -12,9 +12,16 @@ Run (from the `backend/` folder):
 """
 
 from fastapi import FastAPI
+import os
 
 # Import routers (collections of endpoints)
 from app.api.routes.health_routes import router as health_router
+from app.api.routes.memory_routes import router as memory_router
+from app.api.routes.decision_routes import router as decision_router
+
+# Services / stores (used for optional dummy-data seeding)
+from app.db.vector_store import vector_store
+from app.services.memory_service import memory_service
 
 
 def create_app() -> FastAPI:
@@ -30,6 +37,19 @@ def create_app() -> FastAPI:
 
     # Register routers
     app.include_router(health_router)
+    app.include_router(memory_router)
+    app.include_router(decision_router)
+
+    # Optional: seed sample memories on startup (beginner-friendly)
+    # Disable by setting: SEED_DUMMY_DATA=false
+    @app.on_event("startup")
+    def _seed_dummy_data() -> None:
+        seed_flag = os.getenv("SEED_DUMMY_DATA", "true").strip().lower()
+        should_seed = seed_flag not in {"0", "false", "no"}
+
+        # Seed only once (per process) to avoid duplicates.
+        if should_seed and vector_store.count() == 0:
+            memory_service.seed_dummy_data()
 
     return app
 

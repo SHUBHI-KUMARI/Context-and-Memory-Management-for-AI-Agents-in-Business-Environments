@@ -1,0 +1,20 @@
+# Backend dependencies for the Context & Memory Management System
+#
+# Install (from the backend/ folder):
+#   pip install -r requirements.txt
+
+# Web API
+fastapi
+uvicorn[standard]
+
+# Vector search
+faiss-cpu
+numpy
+
+# LangChain embeddings (local HuggingFace fallback)
+langchain-community
+sentence-transformers
+
+# Optional (only needed if you want OpenAI embeddings)
+# langchain-openai
+# openai
