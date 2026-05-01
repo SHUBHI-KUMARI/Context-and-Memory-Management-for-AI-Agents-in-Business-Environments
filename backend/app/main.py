@@ -12,6 +12,7 @@ Run (from the `backend/` folder):
 """
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import os
 
 # Import routers (collections of endpoints)
@@ -33,6 +34,15 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title="Context & Memory Management System (Backend)",
         version="0.1.0",
+    )
+
+    # Configure CORS - allows frontend (localhost:5173) to call backend API
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],  # Adjust for frontend origins
+        allow_credentials=True,
+        allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+        allow_headers=["*"],  # Allows all headers
     )
 
     # Register routers

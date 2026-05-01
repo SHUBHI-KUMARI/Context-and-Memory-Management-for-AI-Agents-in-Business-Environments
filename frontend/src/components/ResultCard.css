@@ -1,0 +1,73 @@
+.result-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.decision-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.decision-wrapper h2 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.explanation-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.explanation-text {
+  color: #374151;
+  font-size: 1rem;
+}
+
+/* Badge colors (using variables from our global css) */
+.risk-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.risk-high {
+  background-color: var(--risk-high);
+  color: var(--risk-high-text);
+  border-color: #fca5a5;
+}
+
+.risk-med {
+  background-color: var(--risk-med);
+  color: var(--risk-med-text);
+  border-color: #fcd34d;
+}
+
+.risk-low {
+  background-color: var(--risk-low);
+  color: var(--risk-low-text);
+  border-color: #86efac;
+}
