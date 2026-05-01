@@ -25,7 +25,9 @@ export const fetchDecision = async (query) => {
         'Content-Type': 'application/json',
       },
       // send our query string as JSON
-      body: JSON.stringify({ query: query, top_k: 5 }),
+      // Note: We use top_k: 2 so we don't accidentally retrieve the entire database 
+      // when we only have 5 dummy items total!
+      body: JSON.stringify({ query: query, top_k: 2 }),
     });
 
     if (!response.ok) {

@@ -1,0 +1,85 @@
+# =========================
+
+# 🧠 Python Backend
+
+# =========================
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+
+# Virtual environments
+
+venv/
+env/
+.venv/
+
+# Python env files
+
+.env
+.env.*
+
+# Logs
+
+*.log
+
+# FAISS / local vector DB (optional)
+
+*.faiss
+*.pkl
+*.index
+
+# =========================
+
+# ⚛️ Frontend (React/Vite)
+
+# =========================
+
+node_modules/
+dist/
+build/
+
+# Vite env
+
+frontend/.env
+frontend/.env.*
+
+# =========================
+
+# 🛠️ General
+
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# IDEs
+
+.vscode/
+.idea/
+
+# Mac / Linux temp
+
+*.swp
+*.swo
+
+# =========================
+
+# 🚀 Deployment / Misc
+
+# =========================
+
+coverage/
+*.coverage
+htmlcov/
+
+# Optional: ignore test outputs
+
+.pytest_cache/
+
+# Optional: logs
+
+logs/
