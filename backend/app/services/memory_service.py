@@ -57,13 +57,17 @@ class MemoryService:
             timestamp = datetime.now(timezone.utc)
 
         # 1) Build the Memory object (validates fields)
-        memory = Memory(
-            id=memory_id or None,
-            type=memory_type,
-            content=content,
-            timestamp=timestamp,
-            metadata=metadata,
-        )
+        # Only pass id if the caller provided it; otherwise let the model generate one.
+        memory_kwargs: Dict[str, Any] = {
+            "type": memory_type,
+            "content": content,
+            "timestamp": timestamp,
+            "metadata": metadata,
+        }
+        if memory_id:
+            memory_kwargs["id"] = memory_id
+
+        memory = Memory(**memory_kwargs)
 
         # 2) Generate embedding for the content
         # embed_texts expects a list of strings, so we pass [memory.content]

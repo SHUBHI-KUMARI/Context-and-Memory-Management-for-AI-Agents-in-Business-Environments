@@ -10,7 +10,7 @@ Endpoint in this file:
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
@@ -32,8 +32,13 @@ class DecisionRequest(BaseModel):
 class DecisionResponse(BaseModel):
     """Response model for /decision."""
 
-    query: str
+    # Clean, demo-friendly fields
     decision: str
+    risk_level: str
+    explanation: str
+
+    # Extra helpful info
+    query: str
     reason: str
 
     # Useful context for debugging/explaining why the decision happened
