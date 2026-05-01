@@ -8,7 +8,7 @@
  */
 
 // If you want to deploy later, you would change this base URL
-const BASE_URL = import.meta.env.BASE_URL || 'http://127.0.0.1:8000';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
 /**
  * Send a query to the decision engine.
